@@ -1,0 +1,16 @@
+order: int
+  date:     date
+  provider: string
+  partner:  string
+  deadline: string
+  product:
+    - sku:        int
+      item_name:  string
+      quantity:   int
+      price:      float
+    - sku:        int
+      item_name:  string
+      quantity:   int
+      price:      float
+  comment: >
+    some comment

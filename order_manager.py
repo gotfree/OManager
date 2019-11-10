@@ -5,6 +5,7 @@ from tkinter import *
 app = Tk()
 
 app.title("Order Manager")
+app.geometry("700x350")
 
 # start program
 app.mainloop()
