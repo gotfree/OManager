@@ -14,3 +14,14 @@ order: int
       price:      float
   comment: >
     some comment
+
+provider: str
+  customer: str
+    product_order:
+      deadline      : date
+        - code      : int
+          name      : str
+          price     : float
+          quantity  : int
+        comments: >
+          some comment
