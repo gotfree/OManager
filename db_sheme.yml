@@ -1,27 +1,18 @@
-order: int
-  date:     date
-  provider: string
-  partner:  string
-  deadline: string
-  product:
-    - sku:        int
-      item_name:  string
-      quantity:   int
-      price:      float
-    - sku:        int
-      item_name:  string
-      quantity:   int
-      price:      float
+order_id: int_unique
+  create_date:   date
+  update_date:   date
+  deadline:      date
+  supplier_name: string
+  shipper_name:  string
+  customer_name: string
+  goods:
+    - sku:       int
+      item_name: string
+      quantity:  int
+      price:     float
+    - sku:       int
+      item_name: string
+      quantity:  int
+      price:     float
   comment: >
     some comment
-
-provider: str
-  customer: str
-    product_order:
-      deadline      : date
-        - code      : int
-          name      : str
-          price     : float
-          quantity  : int
-        comments: >
-          some comment
