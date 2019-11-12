@@ -7,6 +7,7 @@ authors = ["Rob Kano <deathbydissection@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 pyinstaller = "^3.5"
+pendulum = "^2.0"
 
 [tool.poetry.dev-dependencies]
 

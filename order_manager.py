@@ -1,8 +1,13 @@
 from tkinter import *
+import pendulum as pd
 
 
 # Create window object
 app = Tk()
+
+tz = pd.timezone("Europe/Astrakhan")
+now = pd.now(tz)
+frtd_now = now.format('D-MMM-YYYY')
 
 # order_id
 order = IntVar()
@@ -11,7 +16,23 @@ order_label.grid(row=0, column=0, sticky=W)
 order_display = Entry(app, state="readonly", textvariable=order, width=7)
 order_display.grid(row=0, column=1)
 
-# date fields
+# created_date
+created_date = StringVar()
+created_date_label = Label(app, text="Created date", font=(12), pady=20)
+created_date_label.grid(row=0, column=3, sticky=W)
+created_date_display = Entry(
+    app,
+    state="readonly",
+    textvariable=created_date,
+    justify=CENTER,
+    width=12)
+created_date.set(frtd_now)
+created_date_display.grid(row=0, column=4)
+
+# deadline
+"""
+    Implement date picker
+"""
 
 # supplier
 supplier = StringVar()

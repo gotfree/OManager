@@ -1,6 +1,6 @@
 order_id: int(unique)
-  create_date: date
-  update_date: date
+  created_date: date
+  updated_date: date(hidden log field)
   deadline:    date
   supplier:    string
   shipper:     string
