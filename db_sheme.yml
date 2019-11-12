@@ -1,10 +1,11 @@
-order_id: int_unique
-  create_date:   date
-  update_date:   date
-  deadline:      date
-  supplier_name: string
-  shipper_name:  string
-  customer_name: string
+order_id: int(unique)
+  create_date: date
+  update_date: date
+  deadline:    date
+  supplier:    string
+  shipper:     string
+  customer:    string
+  is_active:   bool
   goods:
     - sku:       int
       item_name: string
