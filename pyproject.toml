@@ -2,7 +2,7 @@
 name = "omanager"
 version = "0.1.0"
 description = ""
-authors = ["Rob Kano <deathbydissection@gmail.com>"]
+authors = ["Rob Kano"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
