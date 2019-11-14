@@ -5,7 +5,7 @@
 ### Before starting work UPDATE DEPENDENCES (poetry install)
 
 #### short tasks
-- fill in all fields
+
 - create pretty grid (aligns, stick-options, paddings, sizes)
 - implement unique id for order
 - play with calendar datepicker representation
