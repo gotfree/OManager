@@ -9,7 +9,8 @@ app = Tk()
 
 tz = pd.timezone("Europe/Astrakhan")
 now = pd.now(tz)
-frtd_now = now.format('D-MMM-YYYY')
+frtd_now = now.format('D MMM YYYY')
+current_year = pd.now().year
 
 # order_id
 order = IntVar()
@@ -36,7 +37,7 @@ def set_deadline():
     top = Toplevel(app)
     ttk.Label(top, text='Choose date').pack(padx=5, pady=5)
     cal = DateEntry(top, width=12, background='darkblue',
-                    foreground='white', borderwidth=2, year=2010)
+                    foreground='white', borderwidth=2, year=current_year)
     cal.pack(padx=10, pady=10)
 
 b = Button(app, text="Set deadline", command=set_deadline)
