@@ -33,15 +33,11 @@ created_date.set(frtd_now)
 created_date_display.grid(row=0, column=4)
 
 # deadline date picker
-def set_deadline():
-    top = Toplevel(app)
-    ttk.Label(top, text='Choose date').pack(padx=5, pady=5)
-    cal = DateEntry(top, width=12, background='darkblue',
+deadline_label = Label(app, text="Set deadline", font=(12))
+deadline_label.grid(row=0, column=5)
+cal = DateEntry(app, width=12, background='darkblue',
                     foreground='white', borderwidth=2, year=current_year)
-    cal.pack(padx=10, pady=10)
-
-b = Button(app, text="Set deadline", command=set_deadline)
-b.grid(row=0, column=5)
+cal.grid(row=0, column=6)
 
 
 # supplier
