@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter import ttk
+from tkcalendar import Calendar, DateEntry
 import pendulum as pd
 
 
@@ -33,6 +35,16 @@ created_date_display.grid(row=0, column=4)
 """
     Implement date picker
 """
+def set_deadline():
+    top = Toplevel(app)
+    ttk.Label(top, text='Choose date').pack(padx=5, pady=5)
+    cal = DateEntry(top, width=12, background='darkblue',
+                    foreground='white', borderwidth=2, year=2010)
+    cal.pack(padx=10, pady=10)
+
+b = Button(app, text="Set deadline", command=set_deadline)
+b.grid(row=0, column=5)
+
 
 # supplier
 supplier = StringVar()
