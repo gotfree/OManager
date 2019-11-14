@@ -32,6 +32,7 @@ created_date_display = Entry(
 created_date.set(frtd_now)
 created_date_display.grid(row=0, column=4)
 
+
 # deadline date picker
 deadline_label = Label(app, text="Set deadline", font=(12))
 deadline_label.grid(row=0, column=5)
@@ -47,12 +48,14 @@ supplier_label.grid(row=1, column=0, sticky=W)
 supplier_display = Entry(app, textvariable=supplier)
 supplier_display.grid(row=1, column=1)
 
+
 # shipper
 shipper = StringVar()
 shipper_label = Label(app, text="Shipper", font=(12))
 shipper_label.grid(row=1, column=2, sticky=W)
 shipper_display = Entry(app, textvariable=shipper)
 shipper_display.grid(row=1, column=3)
+
 
 # customer
 customer = StringVar()
@@ -61,8 +64,11 @@ customer_label.grid(row=1, column=4, sticky=W)
 customer_display = Entry(app, textvariable=customer)
 customer_display.grid(row=1, column=5)
 
+
+# genetal settings
 app.title("Order Manager")
 app.geometry("800x600")
+
 
 # start program
 app.mainloop()
