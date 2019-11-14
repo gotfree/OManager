@@ -8,6 +8,7 @@ authors = ["Rob Kano <deathbydissection@gmail.com>"]
 python = "^3.7"
 pyinstaller = "^3.5"
 pendulum = "^2.0"
+tkcalendar = "^1.5"
 
 [tool.poetry.dev-dependencies]
 
