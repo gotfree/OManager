@@ -31,10 +31,7 @@ created_date_display = Entry(
 created_date.set(frtd_now)
 created_date_display.grid(row=0, column=4)
 
-# deadline
-"""
-    Implement date picker
-"""
+# deadline date picker
 def set_deadline():
     top = Toplevel(app)
     ttk.Label(top, text='Choose date').pack(padx=5, pady=5)

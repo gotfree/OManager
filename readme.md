@@ -4,6 +4,7 @@
 
 ### short tasks
 
+- UPDATE DEPENDENCES (poetry install)
 - date picker implementation for "deadline" field
 - create pretty grid (stick-options, paddings, sizes)
 
