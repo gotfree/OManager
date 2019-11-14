@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from tkcalendar import Calendar, DateEntry
 import pendulum as pd
 
@@ -33,6 +32,8 @@ created_date_display = Entry(
 created_date.set(formatted_now)
 created_date_display.grid(row=0, column=4)
 
+# place for 'updated date' field
+
 # deadline date picker
 deadline_label = Label(app, text="Set deadline", font=(12))
 deadline_label.grid(row=0, column=5)
@@ -60,6 +61,18 @@ customer_label = Label(app, text="Customer", font=(12))
 customer_label.grid(row=1, column=4, sticky=W)
 customer_display = Entry(app, textvariable=customer)
 customer_display.grid(row=1, column=5)
+
+# is active
+is_active = BooleanVar()
+def check_box_repr():
+    print(f"var value is: {is_active.get()}")
+is_active_check = Checkbutton(
+    app,
+    text="is order active?",
+    variable=is_active,
+    command=check_box_repr
+)
+is_active_check.grid(row=2, column=0)
 
 # general settings
 app.title("Order Manager")
