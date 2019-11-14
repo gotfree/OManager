@@ -15,3 +15,4 @@
 - associate inserted data with db
 - create CRUD functionality
 - make pretty good order data representation
+- graphical orders data analys
