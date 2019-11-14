@@ -7,9 +7,10 @@ import pendulum as pd
 # Create window object
 app = Tk()
 
+# date setup
 tz = pd.timezone("Europe/Astrakhan")
 now = pd.now(tz)
-frtd_now = now.format('D MMM YYYY')
+formatted_now = now.format('D MMM YYYY')
 current_year = pd.now().year
 
 # order_id
@@ -29,9 +30,8 @@ created_date_display = Entry(
     textvariable=created_date,
     justify=CENTER,
     width=12)
-created_date.set(frtd_now)
+created_date.set(formatted_now)
 created_date_display.grid(row=0, column=4)
-
 
 # deadline date picker
 deadline_label = Label(app, text="Set deadline", font=(12))
@@ -40,14 +40,12 @@ cal = DateEntry(app, width=12, background='darkblue',
                     foreground='white', borderwidth=2, year=current_year)
 cal.grid(row=0, column=6)
 
-
 # supplier
 supplier = StringVar()
 supplier_label = Label(app, text="Supplier", font=(12))
 supplier_label.grid(row=1, column=0, sticky=W)
 supplier_display = Entry(app, textvariable=supplier)
 supplier_display.grid(row=1, column=1)
-
 
 # shipper
 shipper = StringVar()
@@ -56,7 +54,6 @@ shipper_label.grid(row=1, column=2, sticky=W)
 shipper_display = Entry(app, textvariable=shipper)
 shipper_display.grid(row=1, column=3)
 
-
 # customer
 customer = StringVar()
 customer_label = Label(app, text="Customer", font=(12))
@@ -64,8 +61,7 @@ customer_label.grid(row=1, column=4, sticky=W)
 customer_display = Entry(app, textvariable=customer)
 customer_display.grid(row=1, column=5)
 
-
-# genetal settings
+# general settings
 app.title("Order Manager")
 app.geometry("800x600")
 
