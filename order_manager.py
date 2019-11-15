@@ -3,8 +3,12 @@ from tkcalendar import Calendar, DateEntry
 import pendulum as pd
 
 
-# Create window object
+# general settings
 app = Tk()
+app.title("Order Manager")
+app.geometry("800x600")
+app.columnconfigure(0, weight=1)
+app.columnconfigure(0, weight=2)
 
 # date setup
 tz = pd.timezone("Europe/Astrakhan")
@@ -14,14 +18,14 @@ current_year = pd.now().year
 
 # order_id
 order = IntVar()
-order_label = Label(app, text="Order_id", font=(12), pady=20)
+order_label = Label(app, text="Order_id", font=(12), pady=20, bg="green", fg="white")
 order_label.grid(row=0, column=0, sticky=W)
 order_display = Entry(app, state="readonly", textvariable=order, width=7)
 order_display.grid(row=0, column=1)
 
 # created_date
 created_date = StringVar()
-created_date_label = Label(app, text="Created date", font=(12), pady=20)
+created_date_label = Label(app, text="Created date", font=(12), pady=20, bg="green", fg="white")
 created_date_label.grid(row=0, column=3, sticky=W)
 created_date_display = Entry(
     app,
@@ -35,7 +39,7 @@ created_date_display.grid(row=0, column=4)
 # place for 'updated date' field
 
 # deadline date picker
-deadline_label = Label(app, text="Set deadline", font=(12))
+deadline_label = Label(app, text="Set deadline", font=(12), bg="green", fg="white")
 deadline_label.grid(row=0, column=5)
 cal = DateEntry(app, width=12, background='darkblue',
                     foreground='white', borderwidth=2, year=current_year)
@@ -43,7 +47,7 @@ cal.grid(row=0, column=6)
 
 # supplier
 supplier = StringVar()
-supplier_label = Label(app, text="Supplier", font=(12))
+supplier_label = Label(app, text="Supplier", font=(12), bg="green", fg="white")
 supplier_label.grid(row=1, column=0, sticky=W)
 supplier_display = Entry(app, textvariable=supplier)
 supplier_display.grid(row=1, column=1)
@@ -57,7 +61,7 @@ shipper_display.grid(row=1, column=3)
 
 # customer
 customer = StringVar()
-customer_label = Label(app, text="Customer", font=(12))
+customer_label = Label(app, text="Customer", font=(12), bg="green", fg="white")
 customer_label.grid(row=1, column=4, sticky=W)
 customer_display = Entry(app, textvariable=customer)
 customer_display.grid(row=1, column=5)
@@ -73,10 +77,6 @@ is_active_check = Checkbutton(
     command=check_box_repr
 )
 is_active_check.grid(row=2, column=0)
-
-# general settings
-app.title("Order Manager")
-app.geometry("800x600")
 
 
 # start program
