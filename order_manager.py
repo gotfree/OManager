@@ -7,7 +7,7 @@ import pendulum as pd
 app = Tk()
 app.title("Order Manager")
 app.geometry("1024x768")
-app.columnconfigure((1, 3, 5), weight=2)
+app.columnconfigure((1, 3, 5), weight=1)
 app.columnconfigure((0, 2, 4), weight=1)
 
 
@@ -27,7 +27,7 @@ order_display.grid(row=0, column=1)
 # created_date
 created_date = StringVar()
 created_date_label = Label(app, text="Created date", bg="green", fg="white")
-created_date_label.grid(row=0, column=2)
+created_date_label.grid(row=0, column=3)
 created_date_display = Entry(
     app,
     state="readonly",
@@ -36,13 +36,13 @@ created_date_display = Entry(
     # width=12
 )
 created_date.set(formatted_now)
-created_date_display.grid(row=0, column=3)
+created_date_display.grid(row=0, column=4)
 
 # place for 'updated date' field
 
 # deadline date picker
 deadline_label = Label(app, text="Set deadline", bg="green", fg="white")
-deadline_label.grid(row=0, column=4)
+deadline_label.grid(row=0, column=5)
 cal = DateEntry(
     app,
     # background='darkblue',
@@ -50,28 +50,28 @@ cal = DateEntry(
     borderwidth=1,
     year=current_year
 )
-cal.grid(row=0, column=5)
+cal.grid(row=0, column=6)
 
 # supplier ROW 1
 supplier = StringVar()
 supplier_label = Label(app, text="Supplier", bg="green", fg="white")
 supplier_label.grid(row=1, column=0)
 supplier_display = Entry(app, textvariable=supplier)
-supplier_display.grid(row=1, column=1)
+supplier_display.grid(row=1, column=1, columnspan=2, sticky="EW")
 
 # shipper
 shipper = StringVar()
 shipper_label = Label(app, text="Shipper", bg="green", fg="white")
-shipper_label.grid(row=1, column=2)
+shipper_label.grid(row=1, column=3)
 shipper_display = Entry(app, textvariable=shipper)
-shipper_display.grid(row=1, column=3)
+shipper_display.grid(row=1, column=4)
 
 # customer
 customer = StringVar()
 customer_label = Label(app, text="Customer", bg="green", fg="white")
-customer_label.grid(row=1, column=4)
+customer_label.grid(row=1, column=5)
 customer_display = Entry(app, textvariable=customer)
-customer_display.grid(row=1, column=5)
+customer_display.grid(row=1, column=6, columnspan=2, sticky="EW")
 
 # sku field ROW 2-3
 sku = IntVar()
