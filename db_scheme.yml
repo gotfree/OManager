@@ -1,0 +1,22 @@
+---
+order:
+  id: int
+  created_date: date
+  updated_date: "date(hidden log field)"
+  deadline: date
+  supplier: string
+  shipper: string
+  customer: string
+  is_active: bool
+  goods:
+    -
+      item_name: string
+      price: float
+      quantity: int
+      sku: int
+    -
+      item_name: string
+      price: float
+      quantity: int
+      sku: int
+  comment: "some comment"
