@@ -77,12 +77,33 @@ customer_label.grid(row=1, column=4)
 customer_display = Entry(app, textvariable=customer)
 customer_display.grid(row=1, column=5)
 
-# comment field ROW 2
-comment = StringVar()
-comment_label = Label(app, text="Comment", bg="green", fg="white")
-comment_label.grid(row=2, column=0)
-comment_display = Entry(app, textvariable=comment)
-comment_display.grid(row=2, column=1)
+# sku field ROW 2
+sku = IntVar()
+sku_label = Label(app, text="sku", bg="green", fg="white")
+sku_label.grid(row=2, column=0)
+sku_display = Entry(app, textvariable=sku)
+sku_display.grid(row=2, column=1)
+
+# item_name
+item_name = StringVar()
+item_name_label = Label(app, text="Item name", bg="green", fg="white")
+item_name_label.grid(row=2, column=2)
+item_name_display = Entry(app, textvariable=item_name)
+item_name_display.grid(row=2, column=3)
+
+# quantity
+quantity = IntVar()
+quantity_label = Label(app, text="quantity", bg="green", fg="white")
+quantity_label.grid(row=2, column=4)
+quantity_display = Entry(app, textvariable=quantity)
+quantity_display.grid(row=2, column=5)
+
+# price
+price = DoubleVar()
+price_label = Label(app, text="price", bg="green", fg="white")
+price_label.grid(row=2, column=6)
+price_display = Entry(app, textvariable=price)
+price_display.grid(row=2, column=7)
 
 # comment field ROW 3
 comment = StringVar()
