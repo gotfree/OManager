@@ -10,7 +10,6 @@ app.geometry("1024x768")
 app.columnconfigure((1, 3, 5), weight=1)
 app.columnconfigure((0, 2, 4), weight=1)
 
-
 # date setup
 tz = pd.timezone("Europe/Astrakhan")
 now = pd.now(tz)
@@ -119,7 +118,6 @@ is_active_check = Checkbutton(
     command=check_box_repr
 )
 is_active_check.grid(row=4, column=7)
-
 
 # start program
 app.mainloop()
