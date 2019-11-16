@@ -49,7 +49,7 @@ cal = DateEntry(
     borderwidth=1,
     year=current_year
 )
-cal.grid(row=0, column=6)
+cal.grid(row=0, column=6, sticky=W)
 
 # supplier ROW 1
 supplier = StringVar()
@@ -77,7 +77,7 @@ sku = IntVar()
 sku_label = Label(app, text="sku", bg="green", fg="white")
 sku_label.grid(row=2, column=0, sticky=W)
 sku_display = Entry(app, textvariable=sku)
-sku_display.grid(row=3, column=0)
+sku_display.grid(row=3, column=0, sticky="EW")
 
 # item_name
 item_name = StringVar()
