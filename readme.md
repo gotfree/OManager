@@ -2,7 +2,7 @@
 
 ## recording retrieve and manage you routine goods orders
 
-### Before starting work UPDATE DEPENDENCES (poetry install)
+### Before starting work check to UPDATE and INSTALL DEPENDENCES (poetry install/update)
 
 #### short tasks
 
