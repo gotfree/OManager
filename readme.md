@@ -21,6 +21,9 @@
 - make pretty structure for project (project-tree/modules/packages)
 - graphical orders data analysis
 
+---
 
 #### Notes:
 - _for use in win10 may need xming_
+
+---
