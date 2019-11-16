@@ -22,7 +22,7 @@ order = IntVar()
 order_label = Label(app, text="Order_id", bg="green", fg="white")
 order_label.grid(row=0, column=0)
 order_display = Entry(app, state="readonly", textvariable=order)
-order_display.grid(row=0, column=1)
+order_display.grid(row=0, column=1, sticky=W)
 
 # created_date
 created_date = StringVar()
