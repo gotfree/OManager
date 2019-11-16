@@ -13,7 +13,7 @@ app.columnconfigure((0, 2, 4), weight=1)
 # date setup
 tz = pd.timezone("Europe/Astrakhan")
 now = pd.now(tz)
-formatted_now = now.format('D MMM YYYY')
+formatted_now = now.format("D MMM YYYY")
 current_year = pd.now().year
 
 # order_id ROW 0
@@ -45,9 +45,9 @@ deadline_label.grid(row=0, column=5)
 cal = DateEntry(
     app,
     # background='darkblue',
-    foreground='white',
+    foreground="white",
     borderwidth=1,
-    year=current_year
+    year=current_year,
 )
 cal.grid(row=0, column=6, sticky=W)
 
@@ -109,15 +109,20 @@ comment_display.grid(row=4, column=1, columnspan=6, sticky="EW")
 
 # is active
 is_active = BooleanVar()
+
+
 def check_box_repr():
     print(f"var value is: {is_active.get()}")
+
+
 is_active_check = Checkbutton(
-    app,
-    text="is order active?",
-    variable=is_active,
-    command=check_box_repr
+    app, text="is order active?", variable=is_active, command=check_box_repr
 )
 is_active_check.grid(row=4, column=7)
+
+# Order list ROW 5
+order_list = Listbox(app, height=8, width=50)
+order_list.grid()
 
 # start program
 app.mainloop()
