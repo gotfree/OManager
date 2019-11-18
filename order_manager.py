@@ -19,19 +19,19 @@ current_year = pd.now().year
 
 # functions
 def add_item():
-    pass
+    print("Item has added")
 
 
 def remove_order():
-    pass
+    print("Item has removed")
 
 
 def update_order():
-    pass
+    print("Data has updated")
 
 
 def clear_list():
-    pass
+    print("Clear")
 
 
 # order_id ROW 0
