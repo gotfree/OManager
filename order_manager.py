@@ -136,7 +136,7 @@ def check_box_repr():
 
 
 is_active_check = Checkbutton(
-    app, text="is active?", variable=is_active, command=check_box_repr, bg="GREEN"
+    app, text="is active?", variable=is_active, command=check_box_repr
 )
 is_active_check.grid(row=5, column=7, padx=(0, 10))
 
