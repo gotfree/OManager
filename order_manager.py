@@ -7,8 +7,8 @@ import pendulum as pd
 app = Tk()
 app.title("Order Manager")
 app.geometry("1024x768")
-app.columnconfigure((1, 3, 5), weight=1)
-app.columnconfigure((0, 2, 4), weight=1)
+app.columnconfigure((1, 3, 5, 7), weight=1)
+app.columnconfigure((0, 2, 4, 6), weight=1)
 
 # date setup
 tz = pd.timezone("Europe/Astrakhan")
@@ -67,7 +67,7 @@ cal = DateEntry(
     borderwidth=1,
     year=current_year,
     justify=CENTER,
-    width=10,
+    # width=10,
 )
 cal.grid(row=0, column=7, sticky=W)
 
@@ -81,9 +81,9 @@ supplier_display.grid(row=2, column=0, columnspan=2, sticky="EW", padx=10)
 # shipper
 shipper = StringVar()
 shipper_label = Label(app, text="Shipper")
-shipper_label.grid(row=1, column=3, sticky=W)
+shipper_label.grid(row=1, column=2, columnspan=4, sticky=W, padx=(135, 0))
 shipper_display = Entry(app, textvariable=shipper)
-shipper_display.grid(row=2, column=3, columnspan=2, sticky="EW")
+shipper_display.grid(row=2, column=2, columnspan=4, sticky="EW", padx=135)
 
 # customer
 customer = StringVar()
@@ -136,16 +136,16 @@ def check_box_repr():
 
 
 is_active_check = Checkbutton(
-    app, text="is order active?", variable=is_active, command=check_box_repr
+    app, text="is active?", variable=is_active, command=check_box_repr, bg="GREEN"
 )
-is_active_check.grid(row=5, column=7)
+is_active_check.grid(row=5, column=7, padx=(0, 10))
 
 # Order list ROW 6
-order_list = Listbox(app, height=20, width=125)
-order_list.grid(row=6, column=0, columnspan=8)
+order_list = Listbox(app, height=26)
+order_list.grid(row=6, column=0, columnspan=8, sticky="NSEW", padx=10)
 # scrollbar
 scrollbar = Scrollbar(app)
-scrollbar.grid(row=6, column=7, sticky=E)
+scrollbar.grid(row=6, column=7, sticky="NSE")
 # set scroll to listbox
 order_list.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=order_list.yview)
@@ -164,21 +164,21 @@ clear_btn = Button(app, text="Clear input", width=20, command=clear_list)
 clear_btn.grid(row=7, column=5)
 
 # ROW 8
-created_date_label = Label(app, text="test", bg="white")
+created_date_label = Label(app, text="0", bg="white")
 created_date_label.grid(row=8, column=0, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="green")
+created_date_label = Label(app, text="1", bg="green")
 created_date_label.grid(row=8, column=1, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="white")
+created_date_label = Label(app, text="2", bg="white")
 created_date_label.grid(row=8, column=2, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="green")
+created_date_label = Label(app, text="3", bg="green")
 created_date_label.grid(row=8, column=3, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="white")
+created_date_label = Label(app, text="4", bg="white")
 created_date_label.grid(row=8, column=4, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="green")
+created_date_label = Label(app, text="5", bg="green")
 created_date_label.grid(row=8, column=5, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="white")
+created_date_label = Label(app, text="6", bg="white")
 created_date_label.grid(row=8, column=6, sticky=NSEW)
-created_date_label = Label(app, text="test", bg="green")
+created_date_label = Label(app, text="7", bg="green")
 created_date_label.grid(row=8, column=7, sticky=NSEW)
 
 # start program
