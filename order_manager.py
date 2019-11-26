@@ -101,7 +101,8 @@ cal = DateEntry(
     borderwidth=1,
     year=current_year,
     justify=CENTER,
-    textvariable=deadline
+    textvariable=deadline,
+    date_pattern="DD-mm-yyyy"
     # width=10,
 )
 cal.grid(row=0, column=7, sticky=W)
