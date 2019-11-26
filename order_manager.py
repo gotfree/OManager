@@ -65,45 +65,70 @@ def add_item():
             price.get(),
         ),
     )
+    clear_list()
     populate_list()
 
 
 def select_item(event):
-    global selected_item
-    index = order_list.curselection()[0]
-    select_item = order_list.get(index)
-    print(select_item)
+    try:
+        global selected_item
+        index = order_list.curselection()[0]
+        selected_item = order_list.get(index)
+        print(selected_item)
 
-    order_display.delete(0, END)
-    order_display.insert(END, select_item[0])
-    cal.delete(0, END)
-    cal.insert(END, select_item[1])
-    supplier_display.delete(0, END)
-    supplier_display.insert(END, select_item[2])
-    shipper_display.delete(0, END)
-    shipper_display.insert(END, select_item[3])
-    customer_display.delete(0, END)
-    customer_display.insert(END, select_item[4])
-    sku_display.delete(0, END)
-    sku_display.insert(END, select_item[5])
-    item_name_display.delete(0, END)
-    item_name_display.insert(END, select_item[6])
-    quantity_display.delete(0, END)
-    quantity_display.insert(END, select_item[7])
-    price_display.delete(0, END)
-    price_display.insert(END, select_item[8])
+        order_display.delete(0, END)
+        order_display.insert(END, selected_item[0])
+        cal.delete(0, END)
+        cal.insert(END, selected_item[1])
+        supplier_display.delete(0, END)
+        supplier_display.insert(END, selected_item[2])
+        shipper_display.delete(0, END)
+        shipper_display.insert(END, selected_item[3])
+        customer_display.delete(0, END)
+        customer_display.insert(END, selected_item[4])
+        sku_display.delete(0, END)
+        sku_display.insert(END, selected_item[5])
+        item_name_display.delete(0, END)
+        item_name_display.insert(END, selected_item[6])
+        quantity_display.delete(0, END)
+        quantity_display.insert(END, selected_item[7])
+        price_display.delete(0, END)
+        price_display.insert(END, selected_item[8])
+    except IndexError:
+        pass
 
 
 def remove_order():
-    print("Item has removed")
+    db.remove(selected_item[0])
+    clear_list()
+    populate_list()
 
 
 def update_order():
-    print("Data has updated")
+    db.update(
+        selected_item[0],
+        deadline.get(),
+        supplier.get(),
+        shipper.get(),
+        customer.get(),
+        sku.get(),
+        item_name.get(),
+        quantity.get(),
+        price.get(),
+    )
+    populate_list()
 
 
 def clear_list():
-    print("Clear")
+    order_display.delete(0, END)
+    cal.delete(0, END)
+    supplier_display.delete(0, END)
+    shipper_display.delete(0, END)
+    customer_display.delete(0, END)
+    sku_display.delete(0, END)
+    item_name_display.delete(0, END)
+    quantity_display.delete(0, END)
+    price_display.delete(0, END)
 
 
 # order_id ROW 0
