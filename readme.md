@@ -6,15 +6,19 @@
 
 #### short tasks
 
-- associate inserted data with db
-- implement unique id for order
 - play with calendar date-picker representation
-- create CRUD functionality
+- use or remove 'created_date'/'comment'/'is_active' fields
+- create 'updated_date' field and bind with update order button event
+- remove layout grid stamps
+- remove print function from select_item()
 
 ---
 
 #### global tasks
 
+- make executable version
+- restructure db
+- OOP tkinter implementation
 - exceptions/tests/refactoring
 - make pretty structure for project (project-tree/modules/packages)
 - graphical orders data analysis
