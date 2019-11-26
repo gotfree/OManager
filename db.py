@@ -6,7 +6,7 @@ class Database:
         self.con = sqlite3.connect(db)
         self.cur = self.con.cursor()
         self.cur.execute(
-            """CREATE TABLE IF NOT EXIST orders (
+            """CREATE TABLE IF NOT EXISTS orders (
             id integer PRIMARY KEY,
             supplier text,
             shipper text,
@@ -54,3 +54,33 @@ class Database:
 
     def __del__(self):
         self.con.close()
+
+
+db = Database("store.db")
+db.insert(
+    "IT-Partner Ltd.",
+    "PEC Ltd.",
+    "Kalynkin",
+    "20007",
+    "PSU Cheefteck [550-PNRI]",
+    "2",
+    "2500.00",
+)
+db.insert(
+    "Resource Media Ltd.",
+    "Baltic Cargo Ltd.",
+    "TN-Service Ltd.",
+    "56983",
+    "Drum Unit Brother DR-2375 (original)",
+    "1",
+    "12750.00",
+)
+db.insert(
+    "Merlion Ltd.",
+    "Business Lines Ltd.",
+    "Real Plus Ltd.",
+    "60534",
+    "HDD Seagate ST1005 SeaWolf 10Gb 10RPM",
+    "10",
+    "120300.00",
+)
