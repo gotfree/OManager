@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from tkcalendar import Calendar, DateEntry
 import pendulum as pd
 from db import Database
@@ -28,6 +29,18 @@ def populate_list():
 
 
 def add_item():
+    if (
+        deadline.get() == ""
+        or supplier.get() == ""
+        or shipper.get() == ""
+        or customer.get() == ""
+        or sku.get() == ""
+        or item_name.get() == ""
+        or quantity.get() == ""
+        or price.get() == ""
+    ):
+        messagebox.showerror("Required fields", "Please include all fields!")
+        return
     db.insert(
         deadline.get(),
         supplier.get(),
@@ -55,6 +68,32 @@ def add_item():
     populate_list()
 
 
+def select_item(event):
+    global selected_item
+    index = order_list.curselection()[0]
+    select_item = order_list.get(index)
+    print(select_item)
+
+    order_display.delete(0, END)
+    order_display.insert(END, select_item[0])
+    cal.delete(0, END)
+    cal.insert(END, select_item[1])
+    supplier_display.delete(0, END)
+    supplier_display.insert(END, select_item[2])
+    shipper_display.delete(0, END)
+    shipper_display.insert(END, select_item[3])
+    customer_display.delete(0, END)
+    customer_display.insert(END, select_item[4])
+    sku_display.delete(0, END)
+    sku_display.insert(END, select_item[5])
+    item_name_display.delete(0, END)
+    item_name_display.insert(END, select_item[6])
+    quantity_display.delete(0, END)
+    quantity_display.insert(END, select_item[7])
+    price_display.delete(0, END)
+    price_display.insert(END, select_item[8])
+
+
 def remove_order():
     print("Item has removed")
 
@@ -71,7 +110,7 @@ def clear_list():
 order = IntVar()
 order_label = Label(app, text="Order_id")
 order_label.grid(row=0, column=0, sticky=W, pady=10, padx=10)
-order_display = Entry(app, state="readonly", textvariable=order, justify=CENTER)
+order_display = Entry(app, textvariable=order, justify=CENTER)
 order_display.grid(row=0, column=1, sticky=W, padx=10)
 
 # created_date
@@ -185,6 +224,8 @@ scrollbar.grid(row=6, column=7, sticky="NSE")
 # set scroll to listbox
 order_list.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=order_list.yview)
+# bind select
+order_list.bind("<<ListboxSelect>>", select_item)
 
 # Buttons ROW 7
 add_btn = Button(app, text="Add Order", width=20, command=add_item)
