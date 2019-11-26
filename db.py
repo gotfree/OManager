@@ -8,6 +8,7 @@ class Database:
         self.cur.execute(
             """CREATE TABLE IF NOT EXISTS orders (
             id integer PRIMARY KEY,
+            deadline text,
             supplier text,
             shipper text,
             customer text,
@@ -24,10 +25,12 @@ class Database:
         rows = self.cur.fetchall()
         return rows
 
-    def insert(self, supplier, shipper, customer, sku, item_name, quantity, price):
+    def insert(
+        self, deadline, supplier, shipper, customer, sku, item_name, quantity, price
+    ):
         self.cur.execute(
-            "INSERT INTO orders VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)",
-            (supplier, shipper, customer, sku, item_name, quantity, price),
+            "INSERT INTO orders VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (deadline, supplier, shipper, customer, sku, item_name, quantity, price),
         )
         self.con.commit()
 
@@ -35,10 +38,13 @@ class Database:
         self.cur.execute("DELETE FROM orders WHERE id=?", (id,))
         self.con.commit()
 
-    def update(self, id, supplier, shipper, customer, sku, item_name, quantity, price):
+    def update(
+        self, id, deadline, supplier, shipper, customer, sku, item_name, quantity, price
+    ):
         self.cur.execute(
             """
             UPDATE orders SET
+                deadline = ?,
                 supplier = ?,
                 shipper = ?,
                 customer = ?,
@@ -48,7 +54,17 @@ class Database:
                 price = ?
                 WHERE id = ?
             """,
-            (supplier, shipper, customer, sku, item_name, quantity, price, id),
+            (
+                deadline,
+                supplier,
+                shipper,
+                customer,
+                sku,
+                item_name,
+                quantity,
+                price,
+                id,
+            ),
         )
         self.con.commit()
 
@@ -58,6 +74,7 @@ class Database:
 
 # db = Database("store.db")
 # db.insert(
+#     "12-03-2019",
 #     "IT-Partner Ltd.",
 #     "PEC Ltd.",
 #     "Kalynkin",
@@ -67,6 +84,7 @@ class Database:
 #     "2500.00",
 # )
 # db.insert(
+#     "12-03-2019",
 #     "Resource Media Ltd.",
 #     "Baltic Cargo Ltd.",
 #     "TN-Service Ltd.",
@@ -76,6 +94,7 @@ class Database:
 #     "12750.00",
 # )
 # db.insert(
+#     "12-03-2019",
 #     "Merlion Ltd.",
 #     "Business Lines Ltd.",
 #     "Real Plus Ltd.",

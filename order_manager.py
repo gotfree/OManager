@@ -22,12 +22,37 @@ current_year = pd.now().year
 
 # functions
 def populate_list():
+    order_list.delete(0, END)
     for row in db.fetch():
         order_list.insert(END, row)
 
 
 def add_item():
-    print("Item has added")
+    db.insert(
+        deadline.get(),
+        supplier.get(),
+        shipper.get(),
+        customer.get(),
+        sku.get(),
+        item_name.get(),
+        quantity.get(),
+        price.get(),
+    )
+    order_list.delete(0, END)
+    order_list.insert(
+        END,
+        (
+            deadline.get(),
+            supplier.get(),
+            shipper.get(),
+            customer.get(),
+            sku.get(),
+            item_name.get(),
+            quantity.get(),
+            price.get(),
+        ),
+    )
+    populate_list()
 
 
 def remove_order():
@@ -68,6 +93,7 @@ created_date_display.grid(row=0, column=4)
 # deadline date picker
 deadline_label = Label(app, text="Set deadline", width=10)
 deadline_label.grid(row=0, column=6, sticky=W)
+deadline = StringVar()
 cal = DateEntry(
     app,
     # background='darkblue',
@@ -75,6 +101,7 @@ cal = DateEntry(
     borderwidth=1,
     year=current_year,
     justify=CENTER,
+    textvariable=deadline
     # width=10,
 )
 cal.grid(row=0, column=7, sticky=W)
