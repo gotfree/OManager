@@ -18,6 +18,10 @@ current_year = pd.now().year
 
 
 # functions
+def populate_list():
+    print("Populate")
+
+
 def add_item():
     print("Item has added")
 
@@ -180,6 +184,9 @@ created_date_label = Label(app, text="6", bg="white")
 created_date_label.grid(row=8, column=6, sticky=NSEW)
 created_date_label = Label(app, text="7", bg="green")
 created_date_label.grid(row=8, column=7, sticky=NSEW)
+
+# populate data
+populate_list()
 
 # start program
 app.mainloop()
