@@ -1,6 +1,9 @@
 from tkinter import *
 from tkcalendar import Calendar, DateEntry
 import pendulum as pd
+from db import Database
+
+db = Database("store.db")
 
 
 # general settings
@@ -19,7 +22,8 @@ current_year = pd.now().year
 
 # functions
 def populate_list():
-    print("Populate")
+    for row in db.fetch():
+        order_list.insert(END, row)
 
 
 def add_item():
